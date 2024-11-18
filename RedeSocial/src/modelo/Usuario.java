@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
-    Integer id;
-    String nome;
-    String email;
-    String senha;
-    LocalDateTime dataCadastro;
-    List<Usuario> amigos;
-    List<Post> posts;
+    private Integer id;
+    private String nome;
+    private String email;
+    private String senha;
+    private LocalDateTime dataCadastro;
+    private List<Usuario> amigos;
+    private List<Post> posts;
 
     public Usuario(Integer id, String nome, String email, String senha, LocalDateTime dataCadastro, List<Usuario> amigos, List<Post> posts) {
         this.id = id;
@@ -79,16 +79,28 @@ public class Usuario {
         this.posts = posts;
     }
 
+    public void adicionarAmigo(Usuario amigo) {
+        amigos.add(amigo);
+    }
+
+    public void removerAmigo(Usuario amigo){
+        amigos.remove(amigos);
+    }
+
+    public void adicionarPost(Post post){
+        posts.add(post);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Usuario usuario)) return false;
-        return getId().equals(usuario.getId()) && Objects.equals(getNome(), usuario.getNome()) && Objects.equals(getEmail(), usuario.getEmail()) && Objects.equals(getSenha(), usuario.getSenha()) && Objects.equals(getDataCadastro(), usuario.getDataCadastro()) && Objects.equals(getAmigos(), usuario.getAmigos()) && Objects.equals(getPosts(), usuario.getPosts());
+        return getId().equals(usuario.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getNome(), getEmail(), getSenha(), getDataCadastro(), getAmigos(), getPosts());
+        return Objects.hash(getId());
     }
 
     @Override
