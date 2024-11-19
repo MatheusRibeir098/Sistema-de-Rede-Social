@@ -2,6 +2,7 @@ package gerenciador;
 
 import modelo.Usuario;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorUsuarios {
@@ -34,6 +35,23 @@ public class GerenciadorUsuarios {
             }
         }
         return null;
+    }
+
+    /**
+     * Um Busca por iusurios com o nome fornecido pelo usuario
+     * adicinado dentro de uma lista chamada resultado
+     * @param nome parametro fornecida pelo usuario
+     * @return a lista de resultado
+     */
+    public List<Usuario> buscarPorNome(String nome) {
+        List<Usuario> resultado = new ArrayList<>();
+        for (Usuario usu : usuarios){
+            if (usu.getNome().equals(nome)){
+                resultado.add(usu);
+
+            }
+        }
+        return resultado;
     }
 
     /**
