@@ -7,13 +7,14 @@ import java.util.Objects;
 public class Usuario {
     private Integer id;
     private String nome;
+    private String username;
     private String email;
     private String senha;
     private LocalDateTime dataCadastro;
     private List<Usuario> amigos;
     private List<Post> posts;
 
-    public Usuario(Integer id, String nome, String email, String senha, LocalDateTime dataCadastro, List<Usuario> amigos, List<Post> posts) {
+    public Usuario(Integer id, String nome, String username, String email, String senha, LocalDateTime dataCadastro, List<Usuario> amigos, List<Post> posts) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -21,6 +22,15 @@ public class Usuario {
         this.dataCadastro = dataCadastro;
         this.amigos = amigos;
         this.posts = posts;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getId() {
