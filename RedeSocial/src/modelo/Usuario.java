@@ -14,7 +14,7 @@ public class Usuario {
     private List<Usuario> amigos;
     private List<Post> posts;
 
-    public Usuario(Integer id, String nome, String username, String email, String senha, LocalDateTime dataCadastro, List<Usuario> amigos, List<Post> posts) {
+    public Usuario(Integer id, String nome, String username, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;

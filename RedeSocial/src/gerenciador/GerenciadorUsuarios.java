@@ -127,7 +127,6 @@ public class GerenciadorUsuarios {
     }
 
 
-
     /**
      * Verifica se dados fornecidos são difrente de espaços vazios
      * @param usuario
