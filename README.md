@@ -1,5 +1,5 @@
 
-# 📚 Sistema de Rede Social
+# 📚 Sistema de Rede Social --  Em Andamento!
 
 Este repositório contém um projeto desenvolvido como parte das atividades do curso técnico em Desenvolvimento de Sistemas. O objetivo é implementar um sistema básico de rede social utilizando Java puro, sem frameworks ou banco de dados, aplicando conceitos de programação orientada a objetos (POO).
 
@@ -38,7 +38,6 @@ com.redesocial/
 ├── gerenciador/  # Gerenciamento de dados (Usuários, Posts)
 ├── ui/           # Interface com usuário (menus)
 ├── util/         # Classes utilitárias
-└── exception/    # Exceções personalizadas
 ```
 
 ---
