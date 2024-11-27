@@ -9,10 +9,15 @@ import java.util.List;
 
 public class GerenciadorPosts {
 
-    List<Post> posts;
-    int proximoId;
+    private List<Post> posts;
+    private int proximoId;
 
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
+
+    public int getProximoId() {
+        return proximoId++;
+    }
+
 
     public void criar(Post post){
         if (validarPost(post)){
@@ -89,4 +94,5 @@ public class GerenciadorPosts {
             return false;
         }
     }
+
 }
