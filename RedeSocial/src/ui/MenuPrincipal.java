@@ -57,5 +57,51 @@ public class MenuPrincipal {
         System.out.print("Digite sua senha: ");
         String senha = sc.nextLine();
 
+        Usuario UsuarioDeBusca = gerenciadorUsuarios.buscarPorUsername(username);
+
+        if (UsuarioDeBusca != null && UsuarioDeBusca.getSenha() == senha ){
+            System.out.println("Logado com Sucesso!");
+            exibirMenuLogado(UsuarioDeBusca);
+        } else {
+            System.out.println("Usuario ou senha incorretos");
+        }
     }
+
+    private void exibirMenuLogado(Usuario usuario) {
+        System.out.println("=== Bem-vindo, " + usuario.getNome() + " ===");
+        int opcao = 0;
+        MenuUsuario menuUsuario = new MenuUsuario();
+
+        while (opcao != 5) {
+            System.out.println("1. Criar Post");
+            System.out.println("2. Ver Meu Perfil");
+            System.out.println("3. Buscar Usuários");
+            System.out.println("4. Gerenciar Amizades");
+            System.out.println("5. Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = sc.nextInt();
+            sc.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    menuUsuario.criarPost(usuario);
+                    break;
+                case 2:
+                    menuUsuario.verPerfil(usuario);
+                    break;
+                case 3:
+                    menuUsuario.buscarUsuarios();
+                    break;
+                case 4:
+                    menuUsuario.gerenciarAmizades();
+                    break;
+                case 5:
+                    System.out.println("Saindo...");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+    }
+
 }
