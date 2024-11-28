@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GerenciadorUsuarios {
-  private List<Usuario> usuarios;
-    private int proximoId;
+    private List<Usuario> usuarios = new ArrayList<>();
+    private int proximoId = 1;
 
     /**
      * Verifica se o usario está valido depois adiciona a lista

@@ -6,7 +6,8 @@ import modelo.Usuario;
 import java.util.Scanner;
 
 public class MenuPrincipal {
-    private GerenciadorUsuarios gerenciadorUsuarios;
+    private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
+
     Scanner sc = new Scanner(System.in);
     public void exibirMenu(){
 
@@ -38,6 +39,7 @@ public class MenuPrincipal {
     }
 
     private void cadastrarUsuario() {
+        sc.nextLine();
         System.out.print("Digite seu nome: ");
         String nome = sc.nextLine();
         System.out.print("Digite seu username: ");
@@ -49,9 +51,11 @@ public class MenuPrincipal {
 
         Usuario novoUsuario = new Usuario(0,nome, username, email, senha);
         gerenciadorUsuarios.cadastrar(novoUsuario);
+
     }
 
     private void fazerLogin() {
+        sc.nextLine();
         System.out.print("Digite seu username: ");
         String username = sc.nextLine();
         System.out.print("Digite sua senha: ");

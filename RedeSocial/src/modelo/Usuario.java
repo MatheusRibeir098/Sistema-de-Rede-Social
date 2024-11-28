@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
-    private Integer id;
+    private int id;
     private String nome;
     private String username;
     private String email;
@@ -14,7 +14,7 @@ public class Usuario {
     private List<Usuario> amigos;
     private List<Post> posts;
 
-    public Usuario(Integer id, String nome, String username, String email, String senha) {
+    public Usuario(int id, String nome, String username, String email, String senha) {
         this.id = id;
         this.nome = nome;
         this.email = email;
