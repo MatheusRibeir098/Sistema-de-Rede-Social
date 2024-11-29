@@ -19,7 +19,7 @@ public class MenuUsuario {
         System.out.print("Digite o conteúdo do post: ");
         String conteudo = sc.nextLine();
 
-        if (!conteudo.equals("")) {
+        if (conteudo.equals("")) {
             System.out.println("O conteúdo do post não pode ser vazio.");
             return;
         }
@@ -37,6 +37,11 @@ public class MenuUsuario {
         System.out.println("Posts:");
         List<Post> postsUsuario = gerenciadorPosts.listarPorUsuario(usuario);
         System.out.println(postsUsuario);
+        for (Post post : postsUsuario){
+            System.out.println("====== Data: "+post.getDataPublicacao()+"======");
+            System.out.println("Conteudo: "+post.getConteudo());
+        }
+        System.out.println("==============");
     }
 
     public void buscarUsuarios() {
@@ -55,7 +60,7 @@ public class MenuUsuario {
         }
     }
 
-    public void gerenciarAmizades() {
+    public void gerenciarAmizades(Usuario usuario) {
         System.out.println("=== Gerenciar Amizades ===");
         System.out.println("1. Adicionar Amigo");
         System.out.println("2. Remover Amigo");
@@ -65,44 +70,37 @@ public class MenuUsuario {
 
         switch (opcao) {
             case 1:
-                adicionarAmigo();
+                adicionarAmigo(usuario);
                 break;
             case 2:
-                removerAmigo();
+                removerAmigo(usuario);
                 break;
             default:
                 System.out.println("Opção inválida.");
         }
     }
 
-    private void adicionarAmigo() {
+    private void adicionarAmigo(Usuario meuUsuario) {
         System.out.print("Digite o username do usuário que deseja adicionar como amigo: ");
         String username = sc.nextLine();
 
         Usuario amigo = gerenciadorUsuarios.buscarPorUsername(username);
         if (amigo != null) {
-            System.out.print("Digite seu ID para confirmar: ");
-            int idUsuario = sc.nextInt();
-            sc.nextLine();
-
-            gerenciadorUsuarios.adicionarAmizade(idUsuario, amigo.getId());
+            gerenciadorUsuarios.adicionarAmizade(meuUsuario.getId(), amigo.getId());
             System.out.println("Amigo adicionado com sucesso!");
         } else {
             System.out.println("Usuário não encontrado.");
         }
     }
 
-    private void removerAmigo() {
+    private void removerAmigo(Usuario meuUsuario) {
         System.out.print("Digite o username do amigo que deseja remover: ");
         String username = sc.nextLine();
 
         Usuario amigo = gerenciadorUsuarios.buscarPorUsername(username);
         if (amigo != null) {
-            System.out.print("Digite seu ID para confirmar: ");
-            int idUsuario = sc.nextInt();
-            sc.nextLine();
 
-            gerenciadorUsuarios.removerAmizade(idUsuario, amigo.getId());
+            gerenciadorUsuarios.removerAmizade(meuUsuario.getId(), amigo.getId());
             System.out.println("Amigo removido com sucesso!");
         } else {
             System.out.println("Usuário não encontrado.");

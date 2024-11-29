@@ -1,6 +1,7 @@
 package modelo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Post {
@@ -15,10 +16,11 @@ public class Post {
         this.id = id;
         this.autor = autor;
         this.conteudo = conteudo;
-        this.dataPublicacao = dataPublicacao;
-        this.curtidas = curtidas;
-        this.comentarios = comentarios;
+        this.dataPublicacao = LocalDateTime.now();
+        this.curtidas = new ArrayList<>();
+        this.comentarios = new ArrayList<>();
     }
+
 
     public Integer getId() {
         return id;

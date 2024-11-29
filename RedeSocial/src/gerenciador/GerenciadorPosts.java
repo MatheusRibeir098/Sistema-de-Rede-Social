@@ -9,8 +9,9 @@ import java.util.List;
 
 public class GerenciadorPosts {
 
-    private List<Post> posts;
+    private List<Post> posts = new ArrayList<>();
     private int proximoId;
+
 
     private GerenciadorUsuarios gerenciadorUsuarios = new GerenciadorUsuarios();
 
@@ -88,7 +89,7 @@ public class GerenciadorPosts {
     }
 
     public boolean validarPost(Post post){
-        if (post.getAutor() != null && post.getAutor().equals("")){
+        if (post.getAutor() != null && !post.getAutor().equals("")){
             return true;
         } else {
             return false;

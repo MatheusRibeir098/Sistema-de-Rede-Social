@@ -49,10 +49,12 @@ public class MenuPrincipal {
         System.out.print("Digite sua senha: ");
         String senha = sc.nextLine();
 
+
         Usuario novoUsuario = new Usuario(0,nome, username, email, senha);
         gerenciadorUsuarios.cadastrar(novoUsuario);
 
     }
+
 
     private void fazerLogin() {
         sc.nextLine();
@@ -63,7 +65,7 @@ public class MenuPrincipal {
 
         Usuario UsuarioDeBusca = gerenciadorUsuarios.buscarPorUsername(username);
 
-        if (UsuarioDeBusca != null && UsuarioDeBusca.getSenha() == senha ){
+        if (UsuarioDeBusca != null && UsuarioDeBusca.getSenha().equals(senha) ){
             System.out.println("Logado com Sucesso!");
             exibirMenuLogado(UsuarioDeBusca);
         } else {
@@ -76,12 +78,13 @@ public class MenuPrincipal {
         int opcao = 0;
         MenuUsuario menuUsuario = new MenuUsuario();
 
-        while (opcao != 5) {
+        while (opcao != 6) {
             System.out.println("1. Criar Post");
             System.out.println("2. Ver Meu Perfil");
             System.out.println("3. Buscar Usuários");
             System.out.println("4. Gerenciar Amizades");
-            System.out.println("5. Sair");
+            System.out.println("5. Ver Feed");
+            System.out.println("Sair");
             System.out.print("Escolha uma opção: ");
             opcao = sc.nextInt();
             sc.nextLine();
@@ -97,10 +100,13 @@ public class MenuPrincipal {
                     menuUsuario.buscarUsuarios();
                     break;
                 case 4:
-                    menuUsuario.gerenciarAmizades();
+                    menuUsuario.gerenciarAmizades(usuario);
                     break;
                 case 5:
-                    System.out.println("Saindo...");
+                    menuUsuario.verFeedNoticias(usuario);
+                    break;
+                case 6:
+                    System.out.println("Saindo....");
                     break;
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
